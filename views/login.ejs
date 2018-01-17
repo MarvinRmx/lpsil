@@ -1,20 +1,28 @@
-<% var title = 'Formulaire login' %>
+<% var title = 'Formulaire connexion' %>
 <% include head %>
 
-<h1>Login</h1>
 
-<form method="post" action="/login">
-  <p>
-    <label>Pseudonyme:</label>
-        <input type="text" name="username">
-  </p>
-  <p>
-    <label>Mot de passe:</label>
-    <input type="text" name="password">
-  </p>
-  <p>
-    <input type="submit" value="Login">
-  </p>
-</form>
+<div class="columns is-centered">
+  <div class="column is-one-third">
+    <div class="box">
+    <h1 class="title is-2 is-spaced has-text-centered">Connexion</h1>
+
+    <form method="post" action="/login">
+      <p>
+        <label class="label">Pseudonyme:</label>
+        <input class="input" type="text" name="username">
+      </p>
+      <p>
+        <label class="label">Mot de passe:</label>
+        <input class="input" type="text" name="password">
+      </p>
+      <br>
+      <p class="has-text-centered">
+        <input class="button is-primary is-medium" type="submit" value="Login">
+      </p>
+    </form>
+ </div>
+ </div>
+</div>
 
 <% include foot %>

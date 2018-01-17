@@ -4,29 +4,32 @@
 <script>
     function verif(){
         if(document.modifpwd.new_password.value != document.modifpwd.confirm_new_password.value){
-            alert("Les deux nouveaux mots de passe ne correspondent pas.");
+            alert("Les mots de passe ne correspondent pas.");
             return false;
         }
     }
 </script>
 
 <% if(typeof bool!='undefined') {%><script> alert("Ancien mot de passe incorrect !");</script><% } %>
-
-<h1>Formulaire de modification du mot de passe</h1>
-<form name="modifpwd" method="post" action="/user/password" onsubmit="return verif();">
-    <p>
-        <label>Ancien mot de passe :</label>
-        <input type="password" name="old_password">
-    </p>
-    <p>
-        <label>Nouveau mot de passe :</label>
-        <input type="password" name="new_password">
-    </p>
-    <p>
-        <label>Confirmation du mot de passe :</label>
-        <input type="password" name="confirm_new_password">
-    </p>
-    <input type="submit" value="Modifier">
-</form>
+<div class="columns">
+    <div class="column is-one-third">
+        <h1 class="title is-3-desktop">Modification du mot de passe</h1>
+        <form name="modifpwd" method="post" action="/user/password" onsubmit="return verif();">
+            <p>
+                <label class="label">Ancien mot de passe :</label>
+                <input class="input" type="password" name="old_password">
+            </p>
+            <p>
+                <label class="label">Nouveau mot de passe :</label>
+                <input class="input" type="password" name="new_password">
+            </p>
+            <p>
+                <label class="label">Confirmation du mot de passe :</label>
+                <input class="input" type="password" name="confirm_new_password">
+            </p><br>
+            <input class="button is-primary" type="submit" value="Modifier">
+        </form>
+    </div>
+</div>
 
 <% include foot %>

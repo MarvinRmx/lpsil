@@ -1,9 +1,14 @@
 <% var title = 'Profile' %>
 <% include head %>
 
-<p>Hello <%=user.firstname%> <%=user.lastname%></p>
-<a href="/user/edit">Modifier le profil</a>
-<a href="/user/password">Modifier le mot de passe</a>
-<a href="/user/disconnect">Deconnexion</a>
+<div class="columns is-centered">
+    <div class="column is-half has-text-centered">
+        <h1 class="title is-3-desktop">Profil de <%=user.username%></h1>
+        <p>Bonjour <%=user.firstname%> <%=user.lastname%>.</p><br>
+        <a class="button is-primary" href="/user/edit">Modifier le profil</a>
+        <a class="button is-primary" href="/user/password">Modifier le mot de passe</a>
+        <a class="button is-primary" href="/user/disconnect">D&eacuteconnexion</a>
+    </div>
+</div>
 
 <% include foot %>
