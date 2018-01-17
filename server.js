@@ -10,6 +10,8 @@ var cookieParser = require('cookie-parser');
 
 var product = require('./controllers/product.js');
 var user = require('./controllers/user.js');
+var editUser = require('./controllers/edit.js');
+var disconnect = require('./controllers/disconnect.js');
 var category = require('./controllers/category.js');
 
 
@@ -109,7 +111,16 @@ app.get('/user/edit',function(req,res){
     var cookieUser = req.cookies.user;
     res.render('editUser', {user:cookieUser});
 });
-app.post('/user/edit',user.edit);
+app.post('/user/edit',editUser.editUser);
+
+app.get('/user/password',function(req,res){
+    var cookieUser = req.cookies.user;
+    res.render('editPwd', {user:cookieUser});
+});
+
+app.post('/user/password',editUser.editPassword);
+
+app.get('/user/disconnect',disconnect);
 
 var mysql = require('mysql');
 

@@ -1,0 +1,32 @@
+<% var title = 'Modification mot de passe' %>
+<% include head %>
+
+<script>
+    function verif(){
+        if(document.modifpwd.new_password.value != document.modifpwd.confirm_new_password.value){
+            alert("Les deux nouveaux mots de passe ne correspondent pas.");
+            return false;
+        }
+    }
+</script>
+
+<% if(typeof bool!='undefined') {%><script> alert("Ancien mot de passe incorrect !");</script><% } %>
+
+<h1>Formulaire de modification du mot de passe</h1>
+<form name="modifpwd" method="post" action="/user/password" onsubmit="return verif();">
+    <p>
+        <label>Ancien mot de passe :</label>
+        <input type="password" name="old_password">
+    </p>
+    <p>
+        <label>Nouveau mot de passe :</label>
+        <input type="password" name="new_password">
+    </p>
+    <p>
+        <label>Confirmation du mot de passe :</label>
+        <input type="password" name="confirm_new_password">
+    </p>
+    <input type="submit" value="Modifier">
+</form>
+
+<% include foot %>
