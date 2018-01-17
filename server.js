@@ -45,15 +45,12 @@ app.listen(1313);
 /* On affiche le formulaire d'enregistrement */
 
 app.get('/', function(req, res){
-
     res.redirect('/login');
 });
 
-app.get('/login', function(req, res){
-    res.render('login');
-});
+app.get('/login', login.checkIfConnected);
 
-app.post('/login', login);
+app.post('/login', login.connect);
 
 app.get('/register', function (req, res) {
     res.render('register');
