@@ -1,0 +1,25 @@
+<% var title = 'Profile' %>
+<% include head %>
+
+<h1>Liste des produits</h1>
+
+<table>
+    <tr>
+        <th>Produit</th>
+        <th>Prix</th>
+        <th>Stock</th>
+        <th>Description</th>
+    </tr>
+<% products.forEach(function(product){ %>
+    <tr>
+        <td><%=product.name%> </td>
+        <td><%=product.price%></td>
+        <td><%=product.stock%></td>
+        <td><%=product.description%></td>
+        <td><a href="/product/edit/<%=product.id_prod%>">Modifier</a></td>
+        <td><a href="/product/delete/<%=product.id_prod%>">Supprimer</a></td>
+    </tr>
+<% })%>
+<table>
+<a href="/product/add">Ajouter Produit</a>
+<% include foot %>

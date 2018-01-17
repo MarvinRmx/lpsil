@@ -13,6 +13,8 @@ Concepts à mettre ne œuvre :
 
 * Technologies utilisées:
  * NodeJS, MySQL, HTML5, CSS3, javascript
+## Techno conseillées - Express (Framework Web)
+## Bun-yan (Log)
 
 #### A installer
 * [NodeJS v4.2.4](https://nodejs.org/)  
@@ -151,8 +153,8 @@ connection.end();
   var pool =  mysql.createPool({
     connectionLimit : 100, //important
 	host : 'localhost',
-	user : '< MySQL username >',
-	password: '< MySQL password >',
+	user : 'user',
+	password: 'password',
         database: '<nom de vôtre base de données>'
   });	
 
@@ -180,25 +182,39 @@ connection.end();
 ```
 
 #### A faire
-
->    - Implémentation d'un formulaire d'inscription/connexion HTML5
->    - Gestion des sessions [express-session](https://www.npmjs.com/package/express-sessions)
->    - Dashboard utilisateur
+>    - Implémentation d'une plateforme e-commerce
+>    - 	Dashboard utilisateur
 >       - Modification des données utilisateurs
 >       - Suppression du compte
 >       - Accès au page après identification 
->    - Dashboard Administration
->     - Modification de profile 
->     - Suppression de profile 
->     - Révocation des identifiants
->   - Intégration de l'application Pictionnary
+>       - Panier 
+>     - Dashboard Administration
+>       - Ajouter des catégories
+>       - Ajouter des produits
+>       - Suppression des catégories
+>       - Suppression des produits 
+>       - Modification de profile 
+>       - Suppression de profile 
+>       - Révocation des identifiants
+
+#### En option
 >   - Intégration d'un API externe (Facebook, Google et/ou twitter)
-
-
+>   - L'utilisation d'[AngularJS](https://angularjs.org/) ou de [VueJS](https://vuejs.org/)
+>   - Un Dockerfile pour le déploiement 
+>   - L'intégration d'une API de payment
+ 
+#### Package intéressant à utiliser 
+>    - Gestion des authentifications avec des token (JWT)[https://github.com/auth0/node-jsonwebtoken]
+>    - Gestion des sessions [express-session](https://www.npmjs.com/package/express-sessions)
+>    - Gestion des routes [express-enrouten](https://www.npmjs.com/package/express-enrouten)
+>    - ORM [SequelizeJS](http://docs.sequelizejs.com/)
+>    - Dashbord UI HTML/CSS [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 #### Date de remise 
-
-<code> Le 23/01/2017 à 8h00 CET</code>
+<code> Le 18/01/2018 à 8h00 CET</code>
 
 ### Documentation et lien uties
 - [NodeJS](https://nodejs.org/api/)
 - [Express](http://expressjs.com/en/api.html)
+- [Gestionn des routes](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes)
+- [Gestionn des formulaires](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms)
+

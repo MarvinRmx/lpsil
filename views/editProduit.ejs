@@ -1,0 +1,28 @@
+<% var title = 'Formulaire ajout produit' %>
+<% include head %>
+
+<h1>Formulaire édition produit</h1>
+<form method="post" action="/product/edit/<%=product.id_prod%>">
+    <p>
+        <label>Nom:</label>
+        <input type="text" name="name" value="<%=product.name%>">
+    </p>
+    <p>
+        <label>Description:</label>
+        <textarea name="description" value="<%=product.description%>">Description du produit</textarea>
+    </p>
+    <p>
+        <label>Prix:</label>
+        <input type="number" name="price" value="<%=product.price%>">
+        <label>€</label>
+    </p>
+    <p>
+        <label>Stock:</label>
+        <input type="number" name="stock" value="<%=product.stock%>">
+        <label>unit&eacute(s)</label>
+    </p>
+    <p>
+        <input type="submit" value="Ajouter">
+    </p>
+</form>
+<% include foot %>
