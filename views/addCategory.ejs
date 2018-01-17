@@ -1,0 +1,14 @@
+<% var title = 'Formulaire ajout cat&eacutegorie' %>
+<% include head %>
+
+<h1>Formulaire ajout de cat&eacutegorie</h1>
+<form method="post" action="/admin/category/add">
+    <p>
+        <label>Nom:</label>
+        <input type="text" name="name">
+    </p>
+    <p>
+        <input type="submit" value="Ajouter">
+    </p>
+</form>
+<% include foot %>

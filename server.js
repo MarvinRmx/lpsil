@@ -6,11 +6,14 @@ var app = express();
 var login = require('./controllers/login.js');
 var register = require('./controllers/register.js');
 var session = require('express-session');
-var product = require('./controllers/product.js');
 var cookieParser = require('cookie-parser');
+
+var product = require('./controllers/product.js');
 var user = require('./controllers/user.js');
 var editUser = require('./controllers/edit.js');
 var disconnect = require('./controllers/disconnect.js');
+var category = require('./controllers/category.js');
+
 
 var sess;
 
@@ -42,16 +45,12 @@ app.listen(1313);
 /* On affiche le formulaire d'enregistrement */
 
 app.get('/', function(req, res){
-
     res.redirect('/login');
 });
 
-app.get('/login', function(req, res){
-    console.log(req.body);
-    res.render('login');
-});
+app.get('/login', login.checkIfConnected);
 
-app.post('/login', login);
+app.post('/login', login.connect);
 
 app.get('/register', function (req, res) {
     res.render('register');
@@ -67,9 +66,7 @@ app.get('/profile', function (req, res) {
     // Afficher le button logout
 });
 
-app.get('/admin/product/add', function (req, res) {
-    res.render('addProduct');
-});
+
 app.post('/admin/product/add', product.add);
 
 app.get('/admin/product',product.editList);
@@ -80,6 +77,12 @@ app.get('/admin/user/edit/:id',user.displayEditInfo);
 
 app.post('/admin/user/edit/:id',user.edit);
 
+app.get('/admin/user/delete/:id',user.delete);
+
+app.get('/admin/product/add', function (req, res) {
+    res.render('addProduct');
+});
+
 app.get('/admin/product/delete/:id',product.delete);
 
 app.get('/admin/product/edit/:id',product.displayEditInfo);
@@ -89,6 +92,17 @@ app.post('/admin/product/edit/:id',product.edit);
 app.get('/admin',function (req, res) {
     res.render('admin');
 });
+
+app.get('/admin/category', category.list);
+
+app.get('/admin/category/add',function(req, res){
+    res.render('addCategory');
+});
+
+app.post('/admin/category/add',category.add);
+
+app.get('/admin/category/delete/:id',category.delete);
+
 
 app.get('/user/edit',function(req,res){
     var cookieUser = req.cookies.user;

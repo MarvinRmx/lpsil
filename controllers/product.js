@@ -17,6 +17,8 @@ module.exports.list = function(req, res){
     var products = Product.findAndCountAll()
         .then(result => {
         res.render('listProduct',{products: result.rows, nbProducts: result.count});
+    }).catch(function(error){
+        console.error(error);
     });
 }
 
@@ -26,7 +28,7 @@ module.exports.editList = function(req, res){
         res.render('editListProduct',{products: result.rows, nbProducts: result.count});
         }).catch(function(error){
         console.error(error);
-    });;
+    });
 }
 
 
