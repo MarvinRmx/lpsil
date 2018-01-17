@@ -1,6 +1,9 @@
 var User = require('../models/user.js');
+var admin = require('./admin.js');
+
 
 module.exports.editList = function(req,res){
+    admin.checkAdminRights(req,res);
     var users = User.findAndCountAll()
         .then(result => {
         res.render('editListUser',{users: result.rows, nbUsers: result.count});
@@ -9,6 +12,7 @@ module.exports.editList = function(req,res){
     });
 }
 module.exports.delete = function(req, res){
+    admin.checkAdminRights(req,res);
     var user = User.findOne({
         where:
             {
@@ -26,6 +30,7 @@ module.exports.delete = function(req, res){
 }
 
 module.exports.displayEditInfo = function(req, res){
+    admin.checkAdminRights(req,res);
     var user = User.findOne({
         where:
             {
@@ -39,6 +44,7 @@ module.exports.displayEditInfo = function(req, res){
 }
 
 module.exports.edit = function(req, res){
+    admin.checkAdminRights(req,res);
     var user = User.findOne({
         where:
             {

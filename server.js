@@ -5,7 +5,6 @@ var bodyParser = require('body-parser');
 var app = express();
 var login = require('./controllers/login.js');
 var register = require('./controllers/register.js');
-var session = require('express-session');
 var cookieParser = require('cookie-parser');
 
 var product = require('./controllers/product.js');
@@ -13,9 +12,8 @@ var user = require('./controllers/user.js');
 var editUser = require('./controllers/edit.js');
 var disconnect = require('./controllers/disconnect.js');
 var category = require('./controllers/category.js');
+var admin = require('./controllers/admin.js');
 
-
-var sess;
 
 app.use(cookieParser());
 // config
@@ -27,12 +25,6 @@ app.use(morgan('combined')); // Active le middleware de logging
 
 app.use(express.static(__dirname + '/public')); // Indique que le dossier /public contient des fichiers statiques (middleware chargé de base)
 app.set('trust proxy', 1); // trust first proxy
-app.use(session({
-    secret: 'apzieapizrpoar',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}));
 
 logger.info('server start');
 
@@ -59,11 +51,7 @@ app.post('/register', register);
 
 /* On affiche le profile  */
 app.get('/profile', function (req, res) {
-    sess = req.session;
-    var cookieUser = req.cookies.user;
-    res.render('profile',{user:cookieUser});
-    // On redirige vers la login si l'utilisateur n'a pas été authentifier
-    // Afficher le button logout
+    res.render('profile',{user:req.cookies.user});
 });
 
 
@@ -80,6 +68,7 @@ app.post('/admin/user/edit/:id',user.edit);
 app.get('/admin/user/delete/:id',user.delete);
 
 app.get('/admin/product/add', function (req, res) {
+    admin.checkAdminRights(req,res);
     res.render('addProduct');
 });
 
@@ -90,12 +79,14 @@ app.get('/admin/product/edit/:id',product.displayEditInfo);
 app.post('/admin/product/edit/:id',product.edit);
 
 app.get('/admin',function (req, res) {
+    admin.checkAdminRights(req, res);
     res.render('admin');
 });
 
 app.get('/admin/category', category.list);
 
 app.get('/admin/category/add',function(req, res){
+    admin.checkAdminRights(req,res);
     res.render('addCategory');
 });
 
@@ -105,14 +96,12 @@ app.get('/admin/category/delete/:id',category.delete);
 
 
 app.get('/user/edit',function(req,res){
-    var cookieUser = req.cookies.user;
-    res.render('editUser', {user:cookieUser});
+    res.render('editUser', {user:req.cookies.user});
 });
 app.post('/user/edit',editUser.editUser);
 
 app.get('/user/password',function(req,res){
-    var cookieUser = req.cookies.user;
-    res.render('editPwd', {user:cookieUser});
+    res.render('editPwd', {user:req.cookies.user});
 });
 
 app.post('/user/password',editUser.editPassword);

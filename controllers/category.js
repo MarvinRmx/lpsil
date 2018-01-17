@@ -1,4 +1,5 @@
 var Category = require('../models/category.js');
+var admin = require('./admin.js');
 
 module.exports.add = function(req, res){
     var category = Category.create({
@@ -11,6 +12,7 @@ module.exports.add = function(req, res){
 }
 
 module.exports.list = function(req, res){
+    admin.checkAdminRights(req,res);
     var categories = Category.findAndCountAll()
         .then(result => {
         res.render('editListCategory',{categories: result.rows, nbCategories: result.count});
@@ -20,6 +22,7 @@ module.exports.list = function(req, res){
 }
 
 module.exports.delete = function(req, res){
+    admin.checkAdminRights(req,res);
     var category = Category.findOne({
         where:
             {
