@@ -1,0 +1,22 @@
+<% var title = 'Modification de l\'utilisateur' %>
+<% include head %>
+
+<h1>Formulaire modification d'utilisateur</h1>
+<form method="post" action="/admin/user/edit/<%=user.id_user%>">
+    <p>
+        <label>Pseudonyme:</label>
+        <input type="text" name="username" value="<%=user.username%>">
+    </p>
+    <p>
+        <label>Pr&eacutenom:</label>
+        <input type="text" name="firstname" value="<%=user.firstname%>">
+    </p>
+    <p>
+        <label>Nom:</label>
+        <input type="text" name="lastname" value="<%=user.lastname%>">
+    </p>
+    <p>
+        <input type="submit" value="Modifier">
+    </p>
+</form>
+<% include foot %>
