@@ -1,7 +1,8 @@
-<% var title = 'Liste des produits' %>
+<% var title = 'Gestion des produits' %>
 <% include head %>
 
 <h1>Liste des produits</h1>
+<a href="/admin/product/add">Ajouter Produit</a>
 <table>
     <tr>
         <th>Produit</th>
@@ -9,14 +10,16 @@
         <th>Stock</th>
         <th>Description</th>
     </tr>
-    <% products.forEach(function(product){ %>
+<% products.forEach(function(product){ %>
     <tr>
         <td><%=product.name%> </td>
         <td><%=product.price%></td>
         <td><%=product.stock%></td>
         <td><%=product.description%></td>
+        <td><a href="/admin/product/edit/<%=product.id_prod%>">Modifier</a></td>
+        <td><a href="/admin/product/delete/<%=product.id_prod%>">Supprimer</a></td>
     </tr>
-    <% })%>
-    <table>
+<% })%>
+<table>
 
 <% include foot %>

@@ -7,6 +7,7 @@ var login = require('./controllers/login.js');
 var register = require('./controllers/register.js');
 var session = require('express-session');
 var product = require('./controllers/product.js');
+var user = require('./controllers/user.js');
 
 var sess;
 
@@ -62,18 +63,24 @@ app.get('/profile', function (req, res) {
     // Afficher le button logout
 });
 
-app.get('/product/add', function (req, res) {
+app.get('/admin/product/add', function (req, res) {
     res.render('addProduct');
 });
-app.post('/product/add', product.add);
+app.post('/admin/product/add', product.add);
 
-app.get('/product',product.list)
+app.get('/admin/product',product.editList);
 
-app.get('/product/delete/:id',product.delete);
+app.get('/admin/user',user.editList);
 
-app.get('/product/edit/:id',product.displayEditInfo);
+app.get('/admin/user/edit/:id',user.displayEditInfo);
 
-app.post('/product/edit/:id',product.edit);
+app.post('/admin/user/edit/:id',user.edit);
+
+app.get('/admin/product/delete/:id',product.delete);
+
+app.get('/admin/product/edit/:id',product.displayEditInfo);
+
+app.post('/admin/product/edit/:id',product.edit);
 
 app.get('/admin',function (req, res) {
     res.render('admin');

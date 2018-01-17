@@ -1,0 +1,24 @@
+<% var title = 'Gestion des utilisateurs' %>
+<% include head %>
+
+<h1>Liste des utilisateurs</h1>
+<table>
+    <tr>
+        <th>Id_user</th>
+        <th>Pseudonyme</th>
+        <th>Pr&eacute</th>
+        <th>Nom</th>
+    </tr>
+    <% users.forEach(function(user){ %>
+    <tr>
+        <td><%=user.id_user%> </td>
+        <td><%=user.username%></td>
+        <td><%=user.firstname%></td>
+        <td><%=user.lastname%></td>
+        <td><a href="/admin/user/edit/<%=user.id_user%>">Modifier</a></td>
+        <td><a href="/admin/user/delete/<%=user.id_user%>">Supprimer</a></td>
+    </tr>
+    <% })%>
+    <table>
+
+<% include foot %>

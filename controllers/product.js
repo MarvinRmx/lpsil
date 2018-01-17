@@ -20,6 +20,16 @@ module.exports.list = function(req, res){
     });
 }
 
+module.exports.editList = function(req, res){
+    var products = Product.findAndCountAll()
+        .then(result => {
+        res.render('editListProduct',{products: result.rows, nbProducts: result.count});
+        }).catch(function(error){
+        console.error(error);
+    });;
+}
+
+
 module.exports.delete = function(req, res){
     var product = Product.findOne({
         where:
