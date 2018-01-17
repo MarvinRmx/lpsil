@@ -8,6 +8,22 @@ module.exports.editList = function(req,res){
         console.error(error);
     });
 }
+module.exports.delete = function(req, res){
+    var user = User.findOne({
+        where:
+            {
+                id_user: req.params.id
+            }
+    }).then(function(result){
+        result.destroy().then(()=>{
+            res.redirect('/admin/user');
+    }).catch(function(error){
+            console.error(error);
+        });
+    }).catch(function(error){
+        console.error(error);
+    });
+}
 
 module.exports.displayEditInfo = function(req, res){
     var user = User.findOne({
