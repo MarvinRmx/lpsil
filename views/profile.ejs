@@ -1,13 +1,8 @@
 <% var title = 'Profile' %>
 <% include head %>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-
-<%=pouet%>
-
-
-<h1>Hello</h1>
+<p>Hello <%=user.firstname%> <%=user.lastname%></p>
+<a href="/user/edit">Modifier le profil</a>
 
 
 <% include foot %>

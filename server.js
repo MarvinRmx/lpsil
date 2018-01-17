@@ -7,9 +7,12 @@ var login = require('./controllers/login.js');
 var register = require('./controllers/register.js');
 var session = require('express-session');
 var product = require('./controllers/product.js');
+var cookieParser = require('cookie-parser');
+var user = require('./controllers/user.js');
 
 var sess;
 
+app.use(cookieParser());
 // config
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
@@ -56,8 +59,8 @@ app.post('/register', register);
 /* On affiche le profile  */
 app.get('/profile', function (req, res) {
     sess = req.session;
-    var pouet = req.cookies;
-    res.render('profile', pouet);
+    var cookieUser = req.cookies.user;
+    res.render('profile',{user:cookieUser});
     // On redirige vers la login si l'utilisateur n'a pas été authentifier
     // Afficher le button logout
 });
@@ -79,7 +82,11 @@ app.get('/admin',function (req, res) {
     res.render('admin');
 });
 
-
+app.get('/user/edit',function(req,res){
+    var cookieUser = req.cookies.user;
+    res.render('editUser', {user:cookieUser});
+});
+app.post('/user/edit',user.edit);
 
 var mysql = require('mysql');
 

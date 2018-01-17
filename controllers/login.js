@@ -12,7 +12,12 @@ module.exports = function(req, res){
         }
         req.session.firstname = result.dataValues.firstname;
         req.session.lastname = result.dataValues.lastname;
-        res.cookie('user' , req.session.lastname,{ maxAge: 1000 * 60 * 10, httpOnly: false });
+        res.cookie('user' ,
+                   {id:result.dataValues.id_user,
+                    username: result.dataValues.username,
+                    firstname:result.dataValues.firstname,
+                    lastname: result.dataValues.lastname},
+                   {maxAge: 1000 * 60 * 10, httpOnly: false });
         res.redirect('/profile');
     }).catch(function(error){
         console.error(error);
