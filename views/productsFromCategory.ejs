@@ -1,0 +1,22 @@
+<% var title = 'Produits de la catégorie '.concat(categorie.name) %>
+<% include head %>
+
+<h1>Liste des produits de la cat&eacutegorie <%= categorie.name%></h1>
+<table>
+    <tr>
+        <th>Produit</th>
+        <th>Prix</th>
+        <th>Stock</th>
+        <th>Description</th>
+    </tr>
+<% products.forEach(function(product){ %>
+    <tr>
+        <td><%=product.name%> </td>
+        <td><%=product.price%></td>
+        <td><%=product.stock%></td>
+        <td><%=product.description%></td>
+    </tr>
+    <% })%>
+    <table>
+
+<% include foot %>

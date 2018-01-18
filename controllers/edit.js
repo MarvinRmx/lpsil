@@ -47,7 +47,7 @@ module.exports.editPassword = function(req,res){
             });
         } else {
             var bool = "test";
-            res.render('editPwd',{bool:bool});
+            res.render('editPassword',{bool:bool});
         }
         }).catch(function(error){
                 console.error(error);

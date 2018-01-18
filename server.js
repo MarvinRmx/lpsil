@@ -54,11 +54,11 @@ app.get('/profile', function (req, res) {
     res.render('profile',{user:req.cookies.user});
 });
 
+app.get('/category', category.list);
 
-app.post('/admin/product/add', product.add);
+app.get('/category/:category_name', product.displayFromCategory);
 
 app.get('/admin/product',product.editList);
-
 app.get('/admin/user',user.editList);
 
 app.get('/admin/user/edit/:id',user.displayEditInfo);
@@ -67,10 +67,10 @@ app.post('/admin/user/edit/:id',user.edit);
 
 app.get('/admin/user/delete/:id',user.delete);
 
-app.get('/admin/product/add', function (req, res) {
-    admin.checkAdminRights(req,res);
-    res.render('addProduct');
-});
+app.get('/admin/product/add', product.displayAddForm);
+
+app.post('/admin/product/add', product.add);
+
 
 app.get('/admin/product/delete/:id',product.delete);
 
@@ -83,7 +83,7 @@ app.get('/admin',function (req, res) {
     res.render('admin');
 });
 
-app.get('/admin/category', category.list);
+app.get('/admin/category', category.editList);
 
 app.get('/admin/category/add',function(req, res){
     admin.checkAdminRights(req,res);

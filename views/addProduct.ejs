@@ -22,6 +22,14 @@
                     <label class="label">Stock :</label>
                     <input class="input" type="number" name="stock">
                 </p>
+                <p>
+                    <label>Cat&eacutegorie:</label>
+                    <select name="category">
+                        <%categories.forEach(function(category){%>
+                        <option value="<%=category.id_cat%>"><%=category.name%></option>
+                        <% })%>
+                    </select>
+                </p>
                 <br>
                 <p>
                     <input class="button is-primary is-outlined" type="submit" value="Ajouter">

@@ -1,5 +1,6 @@
 var db = require('../db.js');
 var Sequelize = require('Sequelize');
+const category = require('./category.js');
 const product = db.define('product',{
     id_prod: {
         type: Sequelize.INTEGER,
@@ -25,6 +26,6 @@ const product = db.define('product',{
     deletedAt : false,
     freezeTableName: true
 });
-
+product.belongsTo(category);
 product.sync({force: false});
 module.exports = product;

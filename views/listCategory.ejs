@@ -1,0 +1,8 @@
+<% var title = 'Liste des catégories' %>
+<% include head %>
+
+<h1>Liste des cat&eacutegories</h1>
+<% categories.forEach(function(categorie){ %>
+    <a href="/category/<%= categorie.dataValues.name %>"><%=categorie.dataValues.name%></a>
+<% })%>
+<% include foot %>
