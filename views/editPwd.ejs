@@ -11,24 +11,27 @@
 </script>
 
 <% if(typeof bool!='undefined') {%><script> alert("Ancien mot de passe incorrect !");</script><% } %>
-<div class="columns">
+<div class="columns is-centered">
     <div class="column is-one-third">
-        <h1 class="title is-3-desktop">Modification du mot de passe</h1>
-        <form name="modifpwd" method="post" action="/user/password" onsubmit="return verif();">
-            <p>
-                <label class="label">Ancien mot de passe :</label>
-                <input class="input" type="password" name="old_password">
-            </p>
-            <p>
-                <label class="label">Nouveau mot de passe :</label>
-                <input class="input" type="password" name="new_password">
-            </p>
-            <p>
-                <label class="label">Confirmation du mot de passe :</label>
-                <input class="input" type="password" name="confirm_new_password">
-            </p><br>
-            <input class="button is-primary" type="submit" value="Modifier">
-        </form>
+        <div class="box">
+            <h1 class="title is-3-desktop">Modification du mot de passe</h1>
+            <form name="modifpwd" method="post" action="/user/password" onsubmit="return verif();">
+                <p>
+                    <label class="label">Ancien mot de passe :</label>
+                    <input class="input" type="password" name="old_password">
+                </p>
+                <p>
+                    <label class="label">Nouveau mot de passe :</label>
+                    <input class="input" type="password" name="new_password">
+                </p>
+                <p>
+                    <label class="label">Confirmation du mot de passe :</label>
+                    <input class="input" type="password" name="confirm_new_password">
+                </p><br>
+                <input class="button is-primary is-outlined" type="submit" value="Modifier">
+                <a class="button is-primary is-danger is-outlined" href="/profile">Annuler</a>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -1,25 +1,32 @@
 <% var title = 'Gestion des produits' %>
 <% include head %>
 
-<h1>Liste des produits</h1>
-<a href="/admin/product/add">Ajouter Produit</a>
-<table>
-    <tr>
-        <th>Produit</th>
-        <th>Prix</th>
-        <th>Stock</th>
-        <th>Description</th>
-    </tr>
-<% products.forEach(function(product){ %>
-    <tr>
-        <td><%=product.name%> </td>
-        <td><%=product.price%></td>
-        <td><%=product.stock%></td>
-        <td><%=product.description%></td>
-        <td><a href="/admin/product/edit/<%=product.id_prod%>">Modifier</a></td>
-        <td><a href="/admin/product/delete/<%=product.id_prod%>">Supprimer</a></td>
-    </tr>
-<% })%>
-<table>
+<div class="columns is-centered">
+    <div class="column is-four-fifths">
+        <div class="box">
+            <h1 class="title is-3-desktop">Liste des produits</h1>
+            <a class="button is-primary is-outlined" href="/admin/product/add">Ajouter Produit</a>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Stock</th>
+                    <th>Description</th>
+                </tr>
+            <% products.forEach(function(product){ %>
+                <tr>
+                    <td><%=product.name%> </td>
+                    <td><%=product.price%></td>
+                    <td><%=product.stock%></td>
+                    <td width="500px"><%=product.description%></td>
+                    <td><a href="/admin/product/edit/<%=product.id_prod%>">Modifier</a></td>
+                    <td><a href="/admin/product/delete/<%=product.id_prod%>">Supprimer</a></td>
+                </tr>
+            <% })%>
+            </table>
+            <a class="button is-primary is-outlined" href="/admin">Retour au dashboard</a>
+        </div>
+    </div>
+</div>
 
 <% include foot %>

@@ -5,25 +5,24 @@
 <div class="columns is-centered">
   <div class="column is-one-third">
     <div class="box">
-    <h1 class="title is-2 is-spaced has-text-centered">Connexion</h1>
-
-    <form method="post" action="/login">
-      <p>
-        <label class="label">Pseudonyme:</label>
-        <input class="input" type="text" name="username">
-      </p>
-      <p>
-        <label class="label">Mot de passe:</label>
-        <input class="input" type="text" name="password">
-      </p>
-      <br>
-      <p class="has-text-centered">
-        <input class="button is-primary is-medium" type="submit" value="Login">
-      </p>
-        <a href="/register">S'inscrire</a>
-    </form>
- </div>
- </div>
+      <h1 class="title is-2 is-spaced has-text-centered">Connexion</h1>
+      <form method="post" action="/login">
+        <p>
+          <label class="label">Pseudonyme:</label>
+          <input class="input" type="text"  name="username">
+        </p>
+        <p>
+          <label class="label">Mot de passe:</label>
+          <input class="input" type="password" name="password">
+        </p>
+        <br>
+        <p class="has-text-centered">
+          <input class="button is-primary is-medium is-outlined" type="submit" value="Login">
+        </p>
+          <a href="/register">S'inscrire</a>
+      </form>
+    </div>
+  </div>
 </div>
 
 <% include foot %>

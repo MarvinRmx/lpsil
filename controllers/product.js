@@ -7,7 +7,7 @@ module.exports.add = function(req, res) {
         price: req.body.price,
         stock: req.body.stock
     }).then(() => {
-        res.redirect('/product');
+        res.redirect('/admin/product');
     }).catch(function(error){
         console.error(error);
     });
@@ -40,7 +40,7 @@ module.exports.delete = function(req, res){
         }
     }).then(function(result){
         result.destroy().then(()=>{
-            res.redirect('/product');
+            res.redirect('/admin/product');
         }).catch(function(error){
             console.error(error);
         });
@@ -77,7 +77,7 @@ module.exports.edit = function(req, res){
                 stock: req.body.stock
             }
         ).then(()=>{
-            res.redirect('/product');
+            res.redirect('/admin/product');
     }).catch(function(error){
             console.error(error);
         });
