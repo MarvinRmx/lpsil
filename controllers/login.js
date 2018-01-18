@@ -24,7 +24,7 @@ module.exports.connect = function(req, res){
                     username: result.dataValues.username,
                     firstname:result.dataValues.firstname,
                     lastname: result.dataValues.lastname},
-                   {maxAge: 1000 * 60 * 10, httpOnly: false });
+                   {maxAge: 1000 * 60 * 30, httpOnly: false });
         if(result.dataValues.username == 'admin'){
             res.redirect('/admin');
         }

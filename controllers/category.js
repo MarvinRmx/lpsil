@@ -1,7 +1,21 @@
 var Category = require('../models/category.js');
 var admin = require('./admin.js');
 
+
+//Partie Publique
+
+module.exports.list = function(req,res){
+    var categories = Category.findAll()
+        .then(result => {
+        res.render('listCategory',{categories: result});
+    }).catch(function(error){
+        console.error(error);
+    });
+}
+
+// Partie Admin
 module.exports.add = function(req, res){
+    admin.checkAdminRights(req,res);
     var category = Category.create({
         name: req.body.name,
     }).then(() => {
@@ -11,7 +25,7 @@ module.exports.add = function(req, res){
     });
 }
 
-module.exports.list = function(req, res){
+module.exports.editList = function(req, res){
     admin.checkAdminRights(req,res);
     var categories = Category.findAndCountAll()
         .then(result => {

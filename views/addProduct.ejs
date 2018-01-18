@@ -2,7 +2,7 @@
 <% include head %>
 
 <h1>Formulaire ajout produit</h1>
-<form method="post" action="/product/add">
+<form method="post" action="/admin/product/add">
     <p>
         <label>Nom:</label>
         <input type="text" name="name">
@@ -20,6 +20,14 @@
         <label>Stock:</label>
         <input type="number" name="stock">
         <label>unit&eacute</label>
+    </p>
+    <p>
+        <label>Cat&eacutegorie:</label>
+        <select name="category">
+            <%categories.forEach(function(category){%>
+            <option value="<%=category.id_cat%>"><%=category.name%></option>
+            <% })%>
+        </select>
     </p>
     <p>
         <input type="submit" value="Ajouter">
