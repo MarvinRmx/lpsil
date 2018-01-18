@@ -108,6 +108,8 @@ app.post('/user/password',editUser.editPassword);
 
 app.get('/user/disconnect',disconnect);
 
+app.get('/user/productSheet/:id',product.displaySheetInfo);
+
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({

@@ -62,6 +62,19 @@ module.exports.displayEditInfo = function(req, res){
     });
 }
 
+module.exports.displaySheetInfo = function(req,res){
+    var product = Product.findOne({
+        where:
+            {
+                id_prod: req.params.id
+            }
+    }).then(function(result) {
+        res.render('productSheet',{product: result});
+    }).catch(function(error){
+        console.error(error);
+    });
+}
+
 module.exports.edit = function(req, res){
     var product = Product.findOne({
         where:

@@ -1,32 +1,34 @@
 <% var title = 'Modification produit' %>
 <% include head %>
 
-<div class="columns">
-    <div class="column is-one-third">
-        <h1 class="title is-3-desktop">Modification du produit</h1>
-        <form method="post" action="/admin/product/edit/<%=product.id_prod%>">
-            <p>
-                <label class="label">Nom :</label>
-                <input class="input" type="text" name="name" value="<%=product.name%>">
-            </p>
-            <p>
-                <label class="label">Description :</label>
-                <textarea class="textarea" name="description"><%=product.description%></textarea>
-            </p>
-            <p>
-                <label class="label">Prix en € :</label>
-                <input class="input" type="number" name="price" value="<%=product.price%>">
-            </p>
-            <p>
-                <label class="label">Stock :</label>
-                <input class="input" type="number" name="stock" value="<%=product.stock%>">
-            </p>
-            <br>
-            <p>
-                <input class="button is-primary is-outlined" type="submit" value="Modifier">
-                <a class="button is-primary is-danger is-outlined" href="/admin/product">Annuler</a>
-            </p>
-        </form>
+<div class="columns is-centered">
+    <div class="column is-three-fifths">
+        <div class="box">
+            <h1 class="title is-3-desktop">Modification du produit</h1>
+            <form method="post" action="/admin/product/edit/<%=product.id_prod%>">
+                <p>
+                    <label class="label">Nom :</label>
+                    <input class="input" type="text" name="name" value="<%=product.name%>">
+                </p>
+                <p>
+                    <label class="label">Description :</label>
+                    <textarea class="textarea" name="description"><%=product.description%></textarea>
+                </p>
+                <p>
+                    <label class="label">Prix en € :</label>
+                    <input class="input" type="number" name="price" value="<%=product.price%>">
+                </p>
+                <p>
+                    <label class="label">Stock :</label>
+                    <input class="input" type="number" name="stock" value="<%=product.stock%>">
+                </p>
+                <br>
+                <p>
+                    <input class="button is-primary is-outlined" type="submit" value="Modifier">
+                    <a class="button is-primary is-danger is-outlined" href="/admin/product">Annuler</a>
+                </p>
+            </form>
+        </div>
     </div>
 </div>
 <% include foot %>
