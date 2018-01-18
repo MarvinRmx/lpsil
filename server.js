@@ -50,9 +50,7 @@ app.get('/register', function (req, res) {
 app.post('/register', register);
 
 /* On affiche le profile  */
-app.get('/profile', function (req, res) {
-    res.render('profile',{user:req.cookies.user});
-});
+app.get('/profile', user.profile);
 
 app.get('/category', category.list);
 

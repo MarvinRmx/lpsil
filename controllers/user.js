@@ -2,6 +2,23 @@ var User = require('../models/user.js');
 var admin = require('./admin.js');
 
 
+//Partie Publique
+
+module.exports.profile = function(req,res){
+    if(typeof req.cookies.user == 'undefined') {
+        res.redirect('/login');
+    }
+    else{
+        if(req.cookies.user.username == "admin"){
+            res.redirect('/admin');
+        }
+        else{
+            res.render('profile',{user:req.cookies.user});
+        }
+    }
+}
+
+//Partie Admin
 module.exports.editList = function(req,res){
     admin.checkAdminRights(req,res);
     var users = User.findAndCountAll()
