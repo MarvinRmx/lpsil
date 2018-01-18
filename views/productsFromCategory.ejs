@@ -1,22 +1,30 @@
 <% var title = 'Produits de la catégorie '.concat(categorie.name) %>
 <% include head %>
 
-<h1>Liste des produits de la cat&eacutegorie <%= categorie.name%></h1>
-<table>
-    <tr>
-        <th>Produit</th>
-        <th>Prix</th>
-        <th>Stock</th>
-        <th>Description</th>
-    </tr>
-<% products.forEach(function(product){ %>
-    <tr>
-        <td><%=product.name%> </td>
-        <td><%=product.price%></td>
-        <td><%=product.stock%></td>
-        <td><%=product.description%></td>
-    </tr>
-    <% })%>
-    <table>
+
+<div class="columns is-centered">
+    <div class="column is-three-fifths">
+        <div class="box">
+            <h1 class="title is-3">Liste des produits de la cat&eacutegorie <%= categorie.name%></h1>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Stock</th>
+                    <th>Description</th>
+                </tr>
+            <% products.forEach(function(product){ %>
+                <tr>
+                    <td><a href="/user/productSheet/<%=product.id_prod%>"><%=product.name%></a></td>
+                    <td><%=product.price%></td>
+                    <td><%=product.stock%></td>
+                    <td><%=product.description%></td>
+                </tr>
+                <% })%>
+            </table>
+            <a class="button is-danger is-outlined" href="/category">Retour</a>
+        </div>
+    </div>
+</div>
 
 <% include foot %>

@@ -1,8 +1,20 @@
 <% var title = 'Liste des catégories' %>
 <% include head %>
 
-<h1>Liste des cat&eacutegories</h1>
-<% categories.forEach(function(categorie){ %>
-    <a href="/category/<%= categorie.dataValues.name %>"><%=categorie.dataValues.name%></a>
-<% })%>
+<div class="columns is-centered">
+    <div class="column is-one-third">
+        <div class="box has-text-centered">
+            <h1 class="title is-3">Liste des cat&eacutegories</h1>
+            <p>
+                <% categories.forEach(function(categorie){ %>
+                    <a class="button is-primary is-outlined" href="/category/<%= categorie.dataValues.name %>"><%=categorie.dataValues.name%></a>
+                <% })%>
+            </p>
+            <br>
+            <p>
+                <a class="button is-danger is-outlined" href="/">Retour</a>
+            </p>
+        </div>
+    </div>
+</div>
 <% include foot %>

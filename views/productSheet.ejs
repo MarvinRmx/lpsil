@@ -5,7 +5,7 @@
 <div class="columns is-centered">
         <div class="column">
             <h1 class="title is-3">Fiche du produit</h1>
-            <img src="https://www.w3schools.com/w3css/img_fjords.jpg" alt="image du produit" height="auto" width="400">
+            <img src="/img/product.jpg" alt="image du produit" height="auto" width="400">
         </div>
         <div class="column">
             <p class="title is-3"><%= product.name %></p>
@@ -13,6 +13,8 @@
             <p><strong>Prix :</strong> <%= product.price %></p>
             <p><strong>Quantité restante :</strong> <%= product.stock %></p>
         </div>
-</div></div>
+        <a class="button is-danger is-outlined" href="/">Retour au profil</a>
+    </div>
+</div>
 
 <% include foot %>
