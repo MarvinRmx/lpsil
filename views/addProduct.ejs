@@ -1,36 +1,40 @@
 <% var title = 'Formulaire ajout produit' %>
 <% include head %>
 
-<h1>Formulaire ajout produit</h1>
-<form method="post" action="/admin/product/add">
-    <p>
-        <label>Nom:</label>
-        <input type="text" name="name">
-    </p>
-    <p>
-        <label>Description:</label>
-        <textarea name="description">Description du produit</textarea>
-    </p>
-    <p>
-        <label>Prix:</label>
-        <input type="number" name="price">
-        <label>€</label>
-    </p>
-    <p>
-        <label>Stock:</label>
-        <input type="number" name="stock">
-        <label>unit&eacute</label>
-    </p>
-    <p>
-        <label>Cat&eacutegorie:</label>
-        <select name="category">
-            <%categories.forEach(function(category){%>
-            <option value="<%=category.id_cat%>"><%=category.name%></option>
-            <% })%>
-        </select>
-    </p>
-    <p>
-        <input type="submit" value="Ajouter">
-    </p>
-</form>
+<div class="columns">
+    <div class="column is-one-third">
+        <h1 class="title is-3-desktop">Ajout d'un produit</h1>
+        <form method="post" action="/admin/product/add">
+            <p>
+                <label class="label">Nom :</label>
+                <input class="input" type="text" name="name">
+            </p>
+            <p>
+                <label class="label">Description :</label>
+                <textarea class="textarea" placeholder="Description du produit" name="description"></textarea>
+            </p>
+            <p>
+                <label class="label">Prix en € :</label>
+                <input class="input" type="number" name="price">
+            </p>
+            <p>
+                <label class="label">Stock :</label>
+                <input class="input" type="number" name="stock">
+            </p>
+            <p>
+                <label>Cat&eacutegorie:</label>
+                <select name="category">
+                    <%categories.forEach(function(category){%>
+                    <option value="<%=category.id_cat%>"><%=category.name%></option>
+                    <% })%>
+                </select>
+            </p>
+            <br>
+            <p>
+                <input class="button is-primary is-outlined" type="submit" value="Ajouter">
+                <a class="button is-primary is-danger is-outlined" href="/admin/product">Annuler</a>
+            </p>
+        </form>
+    </div>
+</div>
 <% include foot %>

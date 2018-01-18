@@ -1,21 +1,28 @@
 <% var title = 'Gestion des catégories' %>
     <% include head %>
 
-<h1>Liste des cat&eacutegories</h1>
-<a href="/admin/category/add">Ajouter une cat&eacutegorie</a>
-<table>
-<tr>
-<th>Cat&eacutegorie</th>
-<th>Nom</th>
+<div class="columns is-centered">
+    <div class="column is-half">
+        <div class="box">
+            <h1 class="title is-3-desktop">Liste des cat&eacutegories</h1>
+            <a class="button is-primary is-outlined" href="/admin/category/add">Ajouter une cat&eacutegorie</a>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <tr>
+                    <th>Cat&eacutegorie</th>
+                    <th>Nom</th>
+                </tr>
+                <% categories.forEach(function(category){ %>
+                <tr>
+                    <td><%=category.id_cat%> </td>
+                    <td><%=category.name%></td>
+                    <td><a href="/admin/category/delete/<%=category.id_cat%>">Supprimer</a></td>
+                </tr>
+                <% })%>
+            </table>
+            <a class="button is-primary is-outlined" href="/admin">Retour au dashboard</a>
+        </div>
+    </div>
+</div>
 
-</tr>
-<% categories.forEach(function(category){ %>
-<tr>
-    <td><%=category.id_cat%> </td>
-    <td><%=category.name%></td>
-    <td><a href="/admin/category/delete/<%=category.id_cat%>">Supprimer</a></td>
-    </tr>
-    <% })%>
-<table>
 
 <% include foot %>

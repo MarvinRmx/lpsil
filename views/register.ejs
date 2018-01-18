@@ -1,27 +1,33 @@
 <% var title = 'Formulaire inscription' %>
-    <% include head %>
+<% include head %>
 
-<h1>Inscription</h1>
-    <form method="post" action="/register">
-    <p>
-    <label>Pseudonyme:</label>
-<input type="text" name="username">
-    </p>
-    <p>
-    <label>Mot de passe:</label>
-<input type="password" name="password">
-    </p>
-    <p>
-    <label>Pr&eacutenom:</label>
-    <input type="text" name="firstname">
-    </p>
-    <p>
-    <label>Nom:</label>
-    <input type="text" name="lastname">
-    </p>
-    <p>
-    <input type="submit" value="S'inscrire">
-    </p>
-    </form>
-    <a href="/login">D&eacutej&agrave inscrit ?</a>
-    <% include foot %>
+<div class="columns is-centered">
+    <div class="column is-half">
+        <div class="box">
+            <h1 class="title is-3-desktop has-text-centered">Inscription</h1>
+            <form method="post" action="/register">
+                <p>
+                    <label class="label">Pseudonyme:</label>
+                    <input class="input" type="text" name="username">
+                </p>
+                <p>
+                <label class="label">Mot de passe:</label>
+                <input class="input" type="password" name="password">
+                </p>
+                <p>
+                <label class="label">Pr&eacutenom:</label>
+                <input class="input" type="text" name="firstname">
+                </p>
+                <p>
+                <label class="label">Nom:</label>
+                <input class="input" type="text" name="lastname">
+                </p><br>
+                <p class="has-text-centered">
+                <input class="button is-primary is-outlined" type="submit" value="S'inscrire">
+                </p>
+            </form>
+            <a href="/login">D&eacutej&agrave inscrit ?</a>
+        </div>
+    </div>
+</div>
+<% include foot %>

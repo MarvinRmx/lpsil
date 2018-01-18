@@ -1,22 +1,29 @@
 <% var title = 'Modification de l\'utilisateur' %>
 <% include head %>
 
-<h1>Formulaire modification d'utilisateur</h1>
-<form method="post" action="/admin/user/edit/<%=user.id_user%>">
-    <p>
-        <label>Pseudonyme:</label>
-        <input type="text" name="username" value="<%=user.username%>">
-    </p>
-    <p>
-        <label>Pr&eacutenom:</label>
-        <input type="text" name="firstname" value="<%=user.firstname%>">
-    </p>
-    <p>
-        <label>Nom:</label>
-        <input type="text" name="lastname" value="<%=user.lastname%>">
-    </p>
-    <p>
-        <input type="submit" value="Modifier">
-    </p>
-</form>
+<div class="columns">
+    <div class="column is-one-third">
+        <h1 class="title is-3-desktop">Modification d'un utilisateur</h1>
+        <form method="post" action="/admin/user/edit/<%=user.id_user%>">
+            <p>
+                <label class="label">Pseudonyme:</label>
+                <input class="input" type="text" name="username" value="<%=user.username%>">
+            </p>
+            <p>
+                <label class="label">Pr&eacutenom:</label>
+                <input class="input" type="text" name="firstname" value="<%=user.firstname%>">
+            </p>
+            <p>
+                <label class="label">Nom:</label>
+                <input class="input" type="text" name="lastname" value="<%=user.lastname%>">
+            </p>
+            <br>
+            <p>
+                <input class="button is-primary is-outlined" type="submit" value="Modifier">
+                <a class="button is-primary is-danger is-outlined" href="/admin/user">Annuler</a>
+            </p>
+        </form>
+    </div>
+</div>
+
 <% include foot %>
