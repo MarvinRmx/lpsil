@@ -101,7 +101,7 @@ app.get('/user/edit',function(req,res){
 app.post('/user/edit',editUser.editUser);
 
 app.get('/user/password',function(req,res){
-    res.render('editPwd', {user:req.cookies.user});
+    res.render('editPassword', {user:req.cookies.user});
 });
 
 app.post('/user/password',editUser.editPassword);

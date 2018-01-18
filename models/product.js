@@ -27,5 +27,5 @@ const product = db.define('product',{
     freezeTableName: true
 });
 product.belongsTo(category);
-product.sync({force: false});
+product.sync({force: true});
 module.exports = product;
